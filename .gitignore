@@ -1,0 +1,9 @@
+bin/
+*.out
+*.log
+.env
+
+frontend/node_modules/
+frontend/.nuxt/
+frontend/.output/
+frontend/dist/

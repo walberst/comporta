@@ -1,0 +1,124 @@
+services:
+  oracle:
+    image: gvenzl/oracle-free:23-slim
+    environment:
+      ORACLE_PASSWORD: system_pw_troque_isto
+      APP_USER: comporta
+      APP_USER_PASSWORD: comporta_pw_troque_isto
+    volumes:
+      - ./migrations:/container-entrypoint-initdb.d
+      - oracle-data:/opt/oracle/oradata
+    ports:
+      - "1521:1521"
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 15s
+      timeout: 10s
+      retries: 20
+      start_period: 60s
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  mock-billing:
+    build:
+      context: .
+      dockerfile: upstreams/Dockerfile
+    command: ["/app/mock-billing"]
+    environment:
+      PORT: "9001"
+    ports:
+      - "9001:9001"
+
+  mock-inventory:
+    build:
+      context: .
+      dockerfile: upstreams/Dockerfile
+    command: ["/app/mock-inventory"]
+    environment:
+      PORT: "9002"
+    ports:
+      - "9002:9002"
+
+  gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      oracle:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      mock-billing:
+        condition: service_started
+      mock-inventory:
+        condition: service_started
+    environment:
+      HTTP_PORT: "8080"
+      ADMIN_TOKEN: admin-secret-token-troque-isto
+      ORACLE_DSN: "oracle://comporta:comporta_pw_troque_isto@oracle:1521/FREEPDB1"
+      REDIS_ADDR: "redis:6379"
+      LOG_LEVEL: info
+      WS_BROADCAST_INTERVAL: 1s
+    ports:
+      - "8080:8080"
+
+  # Comando de seed, nunca sobe sozinho com "docker compose up". Rodar
+  # explicitamente com: docker compose run --rm seed
+  seed:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: ["/app/seed"]
+    profiles: ["tools"]
+    depends_on:
+      oracle:
+        condition: service_healthy
+    environment:
+      ORACLE_DSN: "oracle://comporta:comporta_pw_troque_isto@oracle:1521/FREEPDB1"
+
+  frontend:
+    build:
+      context: ./frontend
+      target: producao
+      args:
+        NUXT_PUBLIC_API_BASE: http://localhost:8080
+        NUXT_PUBLIC_WS_BASE: ws://localhost:8080
+    depends_on:
+      - gateway
+    ports:
+      - "3002:80"
+
+  prometheus:
+    image: prom/prometheus:v2.55.1
+    volumes:
+      - ./observability/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+    ports:
+      - "9090:9090"
+    depends_on:
+      - gateway
+
+  grafana:
+    image: grafana/grafana:11.2.0
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Viewer
+    volumes:
+      - ./observability/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./observability/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    ports:
+      - "3001:3000"
+    depends_on:
+      - prometheus
+
+volumes:
+  oracle-data:

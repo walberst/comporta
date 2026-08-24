@@ -1,0 +1,17 @@
+run:
+  timeout: 3m
+
+linters:
+  disable-all: true
+  enable:
+    - errcheck
+    - govet
+    - staticcheck
+    - unused
+    - ineffassign
+    - gosimple
+    - misspell
+
+issues:
+  exclude-dirs:
+    - frontend
