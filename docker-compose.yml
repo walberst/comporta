@@ -2,9 +2,11 @@ services:
   oracle:
     image: gvenzl/oracle-free:23-slim
     environment:
+      # O usuario da aplicacao (comporta) e criado pelo proprio script de
+      # migracao em migrations/001_init.sql, entao nao usamos APP_USER aqui:
+      # a ordem de execucao entre esse mecanismo da imagem e os scripts desta
+      # pasta nao e garantida.
       ORACLE_PASSWORD: system_pw_troque_isto
-      APP_USER: comporta
-      APP_USER_PASSWORD: comporta_pw_troque_isto
     volumes:
       - ./migrations:/container-entrypoint-initdb.d
       - oracle-data:/opt/oracle/oradata
@@ -27,6 +29,9 @@ services:
       timeout: 5s
       retries: 5
 
+  # Os dois servicos upstream de exemplo nao publicam porta no host: eles so
+  # existem para o gateway rotear ate eles pela rede interna do compose,
+  # nunca sao acessados diretamente de fora.
   mock-billing:
     build:
       context: .
@@ -34,8 +39,6 @@ services:
     command: ["/app/mock-billing"]
     environment:
       PORT: "9001"
-    ports:
-      - "9001:9001"
 
   mock-inventory:
     build:
@@ -44,8 +47,6 @@ services:
     command: ["/app/mock-inventory"]
     environment:
       PORT: "9002"
-    ports:
-      - "9002:9002"
 
   gateway:
     build:
