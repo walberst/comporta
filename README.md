@@ -135,7 +135,7 @@ curl -H "X-API-Key: cpk_demo_aurora_fintech_0001" http://localhost:8080/billing/
 |---|---|
 | Gateway (proxy e API administrativa) | http://localhost:8080 |
 | Painel Nuxt | http://localhost:3002 |
-| Prometheus | http://localhost:9090 |
+| Prometheus | http://localhost:9091 |
 | Grafana (usuario `admin`, senha `admin`) | http://localhost:3001 |
 | Oracle | localhost:1521, servico `FREEPDB1` |
 
