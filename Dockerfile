@@ -1,7 +1,7 @@
 # Build multi-stage: o binario final nao carrega toolchain do Go nem
 # codigo fonte, so o executavel estatico e certificados de CA para o proxy
 # conseguir falar com upstreams https.
-FROM golang:1.23-alpine AS build
+FROM golang:1.25-alpine AS build
 
 WORKDIR /src
 

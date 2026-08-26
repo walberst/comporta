@@ -1,7 +1,7 @@
 # Imagem unica para os dois servicos upstream de exemplo. O docker-compose
 # escolhe qual binario rodar via "command", entao o build so acontece uma
 # vez e as camadas ficam em cache entre os dois servicos.
-FROM golang:1.23-alpine AS build
+FROM golang:1.25-alpine AS build
 
 WORKDIR /src
 
