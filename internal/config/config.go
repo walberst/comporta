@@ -10,30 +10,30 @@ import (
 )
 
 type Config struct {
-	HTTPPort      string
-	AdminToken    string
-	OracleDSN     string
-	UseMemoryStore bool // modo de desenvolvimento sem Oracle, usado tambem nos testes de integracao locais
-	RedisAddr    string
-	RedisPassword string
-	RedisDB       int
-	LogLevel      string
-	MetricsPath   string
+	HTTPPort            string
+	AdminToken          string
+	OracleDSN           string
+	UseMemoryStore      bool // modo de desenvolvimento sem Oracle, usado tambem nos testes de integracao locais
+	RedisAddr           string
+	RedisPassword       string
+	RedisDB             int
+	LogLevel            string
+	MetricsPath         string
 	WSBroadcastInterval time.Duration
 }
 
 func Load() Config {
 	return Config{
 		HTTPPort:            getEnv("HTTP_PORT", "8080"),
-		AdminToken:           getEnv("ADMIN_TOKEN", "admin-secret-token"),
-		OracleDSN:            getEnv("ORACLE_DSN", ""),
-		UseMemoryStore:       getBool("USE_MEMORY_STORE", false),
-		RedisAddr:            getEnv("REDIS_ADDR", "localhost:6379"),
-		RedisPassword:        getEnv("REDIS_PASSWORD", ""),
-		RedisDB:              getInt("REDIS_DB", 0),
-		LogLevel:             getEnv("LOG_LEVEL", "info"),
-		MetricsPath:          getEnv("METRICS_PATH", "/metrics"),
-		WSBroadcastInterval:  getDuration("WS_BROADCAST_INTERVAL", time.Second),
+		AdminToken:          getEnv("ADMIN_TOKEN", "admin-secret-token"),
+		OracleDSN:           getEnv("ORACLE_DSN", ""),
+		UseMemoryStore:      getBool("USE_MEMORY_STORE", false),
+		RedisAddr:           getEnv("REDIS_ADDR", "localhost:6379"),
+		RedisPassword:       getEnv("REDIS_PASSWORD", ""),
+		RedisDB:             getInt("REDIS_DB", 0),
+		LogLevel:            getEnv("LOG_LEVEL", "info"),
+		MetricsPath:         getEnv("METRICS_PATH", "/metrics"),
+		WSBroadcastInterval: getDuration("WS_BROADCAST_INTERVAL", time.Second),
 	}
 }
 

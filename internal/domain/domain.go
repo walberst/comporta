@@ -20,12 +20,12 @@ type Partner struct {
 // O prefixo mais especifico (mais longo) que casar com o path da requisicao
 // vence, permitindo rotas genericas com excecoes mais finas.
 type Route struct {
-	ID           int64     `json:"id"`
-	PathPrefix   string    `json:"path_prefix"`
-	UpstreamURL  string    `json:"upstream_url"`
-	StripPrefix  bool      `json:"strip_prefix"`
-	Active       bool      `json:"active"`
-	CreatedAt    time.Time `json:"created_at"`
+	ID          int64     `json:"id"`
+	PathPrefix  string    `json:"path_prefix"`
+	UpstreamURL string    `json:"upstream_url"`
+	StripPrefix bool      `json:"strip_prefix"`
+	Active      bool      `json:"active"`
+	CreatedAt   time.Time `json:"created_at"`
 }
 
 // RateLimitPolicy define quantas requisicoes um parceiro pode fazer por

@@ -60,10 +60,10 @@ func main() {
 	}
 
 	policies := []seedPolicy{
-		{partnerIdx: 0, routeIdx: 0, requestsPerMinute: 120},  // Aurora Fintech em /billing
-		{partnerIdx: 0, routeIdx: -1, requestsPerMinute: 30},  // Aurora Fintech, padrao
-		{partnerIdx: 1, routeIdx: 1, requestsPerMinute: 60},   // LogiFast em /inventory
-		{partnerIdx: 2, routeIdx: -1, requestsPerMinute: 20},  // Varejo Union, padrao
+		{partnerIdx: 0, routeIdx: 0, requestsPerMinute: 120}, // Aurora Fintech em /billing
+		{partnerIdx: 0, routeIdx: -1, requestsPerMinute: 30}, // Aurora Fintech, padrao
+		{partnerIdx: 1, routeIdx: 1, requestsPerMinute: 60},  // LogiFast em /inventory
+		{partnerIdx: 2, routeIdx: -1, requestsPerMinute: 20}, // Varejo Union, padrao
 	}
 
 	partnerIDs := make([]int64, len(partners))

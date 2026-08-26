@@ -10,9 +10,9 @@ import (
 
 func TestNormalizePageParams(t *testing.T) {
 	cases := []struct {
-		name             string
-		page, pageSize   int
-		wantP, wantSize  int
+		name            string
+		page, pageSize  int
+		wantP, wantSize int
 	}{
 		{"valores validos passam direto", 2, 10, 2, 10},
 		{"pagina zero vira 1", 0, 10, 1, 10},
