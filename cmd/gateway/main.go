@@ -157,5 +157,3 @@ func broadcastLoop(ctx context.Context, aggregator *stats.Aggregator, hub *wshub
 		}
 	}
 }
-
-var _ = os.Getenv // mantido para futura leitura direta de env em diagnostico rapido, sem custo em runtime
