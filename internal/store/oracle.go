@@ -105,7 +105,7 @@ func (r *oraclePartners) List(ctx context.Context, page, pageSize int) ([]domain
 	if err != nil {
 		return nil, 0, fmt.Errorf("listando partners: %w", err)
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 	out := make([]domain.Partner, 0, pageSize)
 	for rows.Next() {
 		var p domain.Partner
@@ -183,7 +183,7 @@ func (r *oracleRoutes) List(ctx context.Context, page, pageSize int) ([]domain.R
 	if err != nil {
 		return nil, 0, fmt.Errorf("listando routes: %w", err)
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 	out := make([]domain.Route, 0, pageSize)
 	for rows.Next() {
 		var rt domain.Route
@@ -205,7 +205,7 @@ func (r *oracleRoutes) ListActive(ctx context.Context) ([]domain.Route, error) {
 	if err != nil {
 		return nil, fmt.Errorf("listando routes ativas: %w", err)
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 	out := make([]domain.Route, 0)
 	for rows.Next() {
 		var rt domain.Route
@@ -266,7 +266,7 @@ func (r *oraclePolicies) List(ctx context.Context, page, pageSize int) ([]domain
 	if err != nil {
 		return nil, 0, fmt.Errorf("listando policies: %w", err)
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 	out := make([]domain.RateLimitPolicy, 0, pageSize)
 	for rows.Next() {
 		var p domain.RateLimitPolicy
@@ -329,7 +329,7 @@ func (r *oracleAudit) List(ctx context.Context, page, pageSize int) ([]domain.Au
 	if err != nil {
 		return nil, 0, fmt.Errorf("listando audit logs: %w", err)
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 	out := make([]domain.AuditLog, 0, pageSize)
 	for rows.Next() {
 		var a domain.AuditLog
@@ -355,7 +355,7 @@ func (r *oracleAudit) TopConsumers(ctx context.Context, since time.Time, limit i
 	if err != nil {
 		return nil, fmt.Errorf("consultando top consumidores: %w", err)
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 	out := make([]ConsumerStat, 0, limit)
 	for rows.Next() {
 		var c ConsumerStat

@@ -42,7 +42,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("falha ao conectar no oracle: %v", err)
 	}
-	defer db.Close()
+	defer func() { _ = db.Close() }()
 
 	repos := store.NewOracleRepositories(db).AsRepositories()
 	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)

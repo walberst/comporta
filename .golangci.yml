@@ -1,17 +1,20 @@
+version: "2"
+
 run:
   timeout: 3m
 
 linters:
-  disable-all: true
+  default: none
   enable:
     - errcheck
     - govet
     - staticcheck
     - unused
     - ineffassign
-    - gosimple
-    - misspell
+  exclusions:
+    paths:
+      - frontend
 
-issues:
-  exclude-dirs:
-    - frontend
+formatters:
+  enable:
+    - gofmt
