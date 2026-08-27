@@ -13,14 +13,14 @@ import (
 	"github.com/redis/go-redis/v9"
 	"go.uber.org/zap"
 
-	"github.com/hagile/comporta/internal/api"
-	"github.com/hagile/comporta/internal/config"
-	"github.com/hagile/comporta/internal/logging"
-	"github.com/hagile/comporta/internal/proxy"
-	"github.com/hagile/comporta/internal/ratelimit"
-	"github.com/hagile/comporta/internal/stats"
-	"github.com/hagile/comporta/internal/store"
-	"github.com/hagile/comporta/internal/wshub"
+	"github.com/walberst/comporta/internal/api"
+	"github.com/walberst/comporta/internal/config"
+	"github.com/walberst/comporta/internal/logging"
+	"github.com/walberst/comporta/internal/proxy"
+	"github.com/walberst/comporta/internal/ratelimit"
+	"github.com/walberst/comporta/internal/stats"
+	"github.com/walberst/comporta/internal/store"
+	"github.com/walberst/comporta/internal/wshub"
 )
 
 // routeRefreshInterval controla a defasagem maxima entre uma mudanca de rota

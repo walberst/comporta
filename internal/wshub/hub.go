@@ -14,7 +14,7 @@ import (
 	"github.com/gorilla/websocket"
 	"go.uber.org/zap"
 
-	"github.com/hagile/comporta/internal/metrics"
+	"github.com/walberst/comporta/internal/metrics"
 )
 
 var upgrader = websocket.Upgrader{

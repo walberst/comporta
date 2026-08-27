@@ -7,8 +7,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/hagile/comporta/internal/domain"
-	"github.com/hagile/comporta/internal/store"
+	"github.com/walberst/comporta/internal/domain"
+	"github.com/walberst/comporta/internal/store"
 )
 
 func TestMemoryRepositories_PaginacaoDeParceiros(t *testing.T) {

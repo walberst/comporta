@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/hagile/comporta/internal/domain"
+	"github.com/walberst/comporta/internal/domain"
 	// driver go-ora: implementacao pura em Go do protocolo Oracle (TNS), sem
 	// precisar do Oracle Instant Client instalado na imagem, o que mantem o
 	// Dockerfile final leve.

@@ -10,9 +10,9 @@ import (
 	"log"
 	"time"
 
-	"github.com/hagile/comporta/internal/config"
-	"github.com/hagile/comporta/internal/domain"
-	"github.com/hagile/comporta/internal/store"
+	"github.com/walberst/comporta/internal/config"
+	"github.com/walberst/comporta/internal/domain"
+	"github.com/walberst/comporta/internal/store"
 )
 
 type seedPartner struct {

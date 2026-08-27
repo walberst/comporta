@@ -8,8 +8,8 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/hagile/comporta/internal/domain"
-	"github.com/hagile/comporta/internal/store"
+	"github.com/walberst/comporta/internal/domain"
+	"github.com/walberst/comporta/internal/store"
 )
 
 // AdminHandler expoe os endpoints REST de cadastro usados pelo painel e por

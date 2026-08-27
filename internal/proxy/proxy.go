@@ -9,7 +9,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/hagile/comporta/internal/domain"
+	"github.com/walberst/comporta/internal/domain"
 )
 
 // Router mantem a tabela de rotas ativas em memoria, atualizada

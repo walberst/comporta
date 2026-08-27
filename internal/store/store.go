@@ -9,7 +9,7 @@ import (
 	"errors"
 	"time"
 
-	"github.com/hagile/comporta/internal/domain"
+	"github.com/walberst/comporta/internal/domain"
 )
 
 // ErrNotFound e retornado por qualquer repositorio quando o registro buscado

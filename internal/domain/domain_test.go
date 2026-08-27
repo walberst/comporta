@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/hagile/comporta/internal/domain"
+	"github.com/walberst/comporta/internal/domain"
 )
 
 func TestNormalizePageParams(t *testing.T) {

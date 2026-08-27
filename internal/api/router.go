@@ -7,7 +7,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus/promhttp"
 	"go.uber.org/zap"
 
-	"github.com/hagile/comporta/internal/wshub"
+	"github.com/walberst/comporta/internal/wshub"
 )
 
 // NewRouter monta o multiplexador HTTP completo do gateway: endpoints

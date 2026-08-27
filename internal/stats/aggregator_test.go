@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/hagile/comporta/internal/stats"
+	"github.com/walberst/comporta/internal/stats"
 )
 
 func TestAggregator_CalculaTaxaDeErroERanking(t *testing.T) {

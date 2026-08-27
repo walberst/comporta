@@ -9,7 +9,7 @@ import (
 	"github.com/redis/go-redis/v9"
 	"github.com/stretchr/testify/require"
 
-	"github.com/hagile/comporta/internal/ratelimit"
+	"github.com/walberst/comporta/internal/ratelimit"
 )
 
 // newTestLimiter sobe um Redis em memoria (miniredis) para o teste de

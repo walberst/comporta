@@ -12,12 +12,12 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/hagile/comporta/internal/api"
-	"github.com/hagile/comporta/internal/domain"
-	"github.com/hagile/comporta/internal/proxy"
-	"github.com/hagile/comporta/internal/ratelimit"
-	"github.com/hagile/comporta/internal/stats"
-	"github.com/hagile/comporta/internal/store"
+	"github.com/walberst/comporta/internal/api"
+	"github.com/walberst/comporta/internal/domain"
+	"github.com/walberst/comporta/internal/proxy"
+	"github.com/walberst/comporta/internal/ratelimit"
+	"github.com/walberst/comporta/internal/stats"
+	"github.com/walberst/comporta/internal/store"
 )
 
 type testEnv struct {

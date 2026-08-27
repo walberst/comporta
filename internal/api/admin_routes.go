@@ -6,7 +6,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/hagile/comporta/internal/domain"
+	"github.com/walberst/comporta/internal/domain"
 )
 
 type createRouteRequest struct {

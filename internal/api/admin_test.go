@@ -11,9 +11,9 @@ import (
 	"github.com/stretchr/testify/require"
 	"go.uber.org/zap"
 
-	"github.com/hagile/comporta/internal/api"
-	"github.com/hagile/comporta/internal/domain"
-	"github.com/hagile/comporta/internal/store"
+	"github.com/walberst/comporta/internal/api"
+	"github.com/walberst/comporta/internal/domain"
+	"github.com/walberst/comporta/internal/store"
 )
 
 func newAdminHandler() (*api.AdminHandler, store.Repositories) {

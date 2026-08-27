@@ -9,12 +9,12 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/hagile/comporta/internal/domain"
-	"github.com/hagile/comporta/internal/metrics"
-	"github.com/hagile/comporta/internal/proxy"
-	"github.com/hagile/comporta/internal/ratelimit"
-	"github.com/hagile/comporta/internal/stats"
-	"github.com/hagile/comporta/internal/store"
+	"github.com/walberst/comporta/internal/domain"
+	"github.com/walberst/comporta/internal/metrics"
+	"github.com/walberst/comporta/internal/proxy"
+	"github.com/walberst/comporta/internal/ratelimit"
+	"github.com/walberst/comporta/internal/stats"
+	"github.com/walberst/comporta/internal/store"
 )
 
 // apiKeyHeader e o cabecalho que os parceiros usam para se autenticar no

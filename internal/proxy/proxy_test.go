@@ -8,8 +8,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/hagile/comporta/internal/domain"
-	"github.com/hagile/comporta/internal/proxy"
+	"github.com/walberst/comporta/internal/domain"
+	"github.com/walberst/comporta/internal/proxy"
 )
 
 func TestRouter_EncaminhaParaUpstreamCorretoEStripaPrefixo(t *testing.T) {

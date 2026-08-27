@@ -1,4 +1,4 @@
-module github.com/hagile/comporta
+module github.com/walberst/comporta
 
 go 1.25.0
 

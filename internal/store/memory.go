@@ -6,7 +6,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/hagile/comporta/internal/domain"
+	"github.com/walberst/comporta/internal/domain"
 )
 
 // MemoryRepositories e uma implementacao em memoria dos repositorios, usada
